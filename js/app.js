@@ -47,16 +47,16 @@ function clock(s, m, h) {
 
     }
     setInterval(() => {
+        s++
         document.getElementById("s").innerHTML = ""
         if (s < 60) {
-            s++
         } else {
             s = 0;
             m++
         }
-        if (m > 60) {
+        if (m > 59) {
             h++
-            m = m
+            m = 0
         }
         if (h > 24) {
             h = 0;
@@ -76,16 +76,16 @@ function clock(s, m, h) {
         }
         if (minuteAngle > 0 && minuteAngle < 180) {
             document.getElementById('m').style.transform = 'rotate(' + minuteAngle + 'deg)  rotate3d(1, 0, 0, 180deg) translateY(-140px)';
-    
+
         } else {
             document.getElementById('m').style.transform = 'rotate(' + minuteAngle + 'deg)  rotate3d(0, 1, 0, 180deg) translateY(0px)';
         }
         if (hourAngle > 0 && hourAngle < 180) {
             document.getElementById('h').style.transform = 'rotate(' + hourAngle + 'deg)  rotate3d(1, 0, 0, 180deg) translateY(-80px)';
-    
+
         } else {
             document.getElementById('h').style.transform = 'rotate(' + hourAngle + 'deg)  rotate3d(0, 1, 0, 180deg) translateY(0px)';
-    
+
         }
     }, 1000)
 }
